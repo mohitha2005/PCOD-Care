@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOD Awareness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f9f3f8;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #8e44ad;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            font-size: 20px;
+            
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f1c40f;
+        }
+
+        .login-btn {
+            background-color: #f1c40f;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .login-btn:hover {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            /* background-image: linear-gradient(rgba(142, 68, 173, 0.7), rgba(142, 68, 173, 0.7)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); */
+            /* background-image: url('https://tse4.mm.bing.net/th?id=OIP.w5Dh81UNVnrhAPsoXcbMFAHaEK&pid=Api&P=0&h=180'); */
+            background-image: url('https://images.unsplash.com/photo-1550711147-6784d1c4694e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjYwfHxiYWNrZ3JvdW5kJTIwaW1hZ2VzJTIwZm9yJTIwcGNvZCUyMHdlYiUyMHBhZ2V8ZW58MHx8MHx8fDA%3D');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-btn {
+            background-color: #f1c40f;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #f39c12;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #8e44ad;
+            font-size: 36px;
+        }
+
+        /* Blog Cards */
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #8e44ad;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .read-more {
+            display: inline-block;
+            background-color: #8e44ad;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: #9b59b6;
+        }
+
+        /* Article Page */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-title {
+            font-size: 32px;
+            color: #8e44ad;
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .article-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .article-content {
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .article-content p {
+            margin-bottom: 15px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background-color: #8e44ad;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #9b59b6;
+        }
+
+        /* Services Page */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 50px;
+            color: #8e44ad;
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #8e44ad;
+        }
+
+        .service-desc {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .service-btn {
+            display: inline-block;
+            background-color: #8e44ad;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .service-btn:hover {
+            background-color: #9b59b6;
+        }
+
+        /* Sub-service Pages */
+        .sub-service-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .sub-service-title {
+            font-size: 32px;
+            color: #8e44ad;
+            margin-bottom: 20px;
+        }
+
+        .sub-service-content {
+            line-height: 1.8;
+        }
+
+        .sub-service-content p {
+            margin-bottom: 15px;
+        }
+
+        .doctor-list, .treatment-list, .diet-plan {
+            margin-bottom: 20px;
+        }
+
+        .doctor-item, .treatment-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .doctor-name, .treatment-name {
+            font-weight: bold;
+            color: #8e44ad;
+            margin-bottom: 5px;
+        }
+
+        .age-group {
+            font-weight: bold;
+            color: #8e44ad;
+            margin: 20px 0 10px;
+        }
+
+        /* Contact Page */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-title {
+            font-size: 24px;
+            color: #8e44ad;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            font-size: 20px;
+            color: #8e44ad;
+            margin-right: 15px;
+        }
+
+        .map-container {
+            height: 500px;
+            background-color: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d30405.33615376417!2d83.17501438609057!3d17.713183353471873!3m2!1i1024!2i768!4f13.1!2m1!1spcod%20specialists%20near%20me!5e0!3m2!1sen!2sin!4v1750952218752!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        .specialist-list {
+            margin-top: 30px;
+        }
+
+        .specialist-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .specialist-name {
+            font-weight: bold;
+            color: #8e44ad;
+            margin-bottom: 5px;
+        }
+
+        .contact-specialist {
+            display: inline-block;
+            background-color: #8e44ad;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-specialist:hover {
+            background-color: #9b59b6;
+        }
+
+        /* Login Page */
+        .login-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-title {
+            font-size: 28px;
+            color: #8e44ad;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #8e44ad;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .login-btn-form {
+            width: 100%;
+            background-color: #8e44ad;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn-form:hover {
+            background-color: #9b59b6;
+        }
+
+        .password-requirements {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #8e44ad;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f1c40f;
+        }
+
+        .copyright {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Hidden Sections */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo" onclick="showSection('home')">PCOD CARE</a>
+            <ul class="nav-links">
+                <!-- <li><a href="#" onclick="showSection('home')">Home</a></li> -->
+                 <li><a href="questionnaire.html" onclick="showSection('survey form')">SURVEY FORM</a></li>
+                <li><a href="#" onclick="showSection('blog')">BLOG</a></li>
+                <li><a href="#" onclick="showSection('services')">SERVICES</a></li>
+                <li><a href="#" onclick="showSection('contact')">CONTACT US</a></li>
+                <!-- <li><a href="#" class="login-btn" onclick="showSection('login')">Login</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <div class="hero">
+            <div class="container hero-content">
+                <h1>Understanding and Managing PCOD</h1>
+                <p>Polycystic Ovarian Disease affects millions of women worldwide. Learn about symptoms, treatments, and lifestyle changes to manage PCOD effectively.</p>
+                <!-- <a href="#" class="cta-btn" onclick="showSection('blog')">Learn More</a> -->
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="container">
+                <h2 class="section-title">About PCOD</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; line-height: 1.8;">
+                    Polycystic Ovarian Disease (PCOD) is a hormonal disorder common among women of reproductive age. 
+                    Women with PCOD may have infrequent or prolonged menstrual periods or excess male hormone (androgen) levels. 
+                    The ovaries may develop numerous small collections of fluid (follicles) and fail to regularly release eggs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('home')">← Back to Home</a>
+                <h2 class="section-title">PCOD Articles</h2>
+                <div class="blog-container">
+                    <!-- Article 1 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1631563019701-efcf403bc5fe?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="PCOD Awareness">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Understanding PCOD: Symptoms and Diagnosis</h3>
+                            <p class="blog-excerpt">Learn about the common symptoms of PCOD and how it's diagnosed by healthcare professionals.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article1')">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PCOD Diet">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Best Diet Practices for PCOD Management</h3>
+                            <p class="blog-excerpt">Discover how dietary changes can significantly improve PCOD symptoms and overall health.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article2')">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Article 3 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Exercise for PCOD">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Exercise Routines for PCOD Patients</h3>
+                            <p class="blog-excerpt">Find out which exercises are most beneficial for women with PCOD to maintain a healthy weight.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article3')">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Article 4 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PCOD Medications">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Medications for PCOD: What You Need to Know</h3>
+                            <p class="blog-excerpt">Explore the various medications prescribed for PCOD and their effects on the body.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article4')">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Article 5 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PCOD and Pregnancy">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">PCOD and Fertility: What to Expect</h3>
+                            <p class="blog-excerpt">Understand how PCOD affects fertility and what options are available for women trying to conceive.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article5')">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Article 6 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <!-- <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PCOD Mental Health"> -->
+                             <img src="https://images.unsplash.com/photo-1609979160523-4d395393eb25?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Mental Health and PCOD: The Connection</h3>
+                            <p class="blog-excerpt">Learn about the psychological impact of PCOD and strategies to maintain good mental health.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article6')">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Article 7 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1665379053487-416a8e964692?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="PCOD Natural Remedies">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Natural Remedies for PCOD Symptoms</h3>
+                            <p class="blog-excerpt">Discover natural approaches that may help alleviate PCOD symptoms alongside medical treatment.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article7')">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Article 8 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1612277795054-a7a98257dd6d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="PCOD Long-term Effects">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Long-term Health Effects of PCOD</h3>
+                            <p class="blog-excerpt">Understand the potential long-term health risks associated with PCOD and how to mitigate them.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article8')">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Article 9 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1723649388532-358b56dda065?q=80&w=1285&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="PCOD Success Stories">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Success Stories: Living Well with PCOD</h3>
+                            <p class="blog-excerpt">Read inspiring stories from women who have successfully managed their PCOD symptoms.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article9')">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Article 10 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1721355007794-16b3591c8d8d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="PCOD Research">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Latest Research on PCOD Treatments</h3>
+                            <p class="blog-excerpt">Stay updated on the newest scientific discoveries and treatment options for PCOD.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article10')">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Pages -->
+    <!-- Article 1 -->
+    <section id="article1" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('blog')">← Back to Blog</a>
+                <div class="article-container">
+                    <h1 class="article-title">Understanding PCOD: Symptoms and Diagnosis</h1>
+                    <p class="article-meta">Published on June 1, 2023 by Dr. Sarah Johnson</p>
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PCOD Awareness" class="article-img">
+                    <div class="article-content">
+                        <p>Polycystic Ovarian Disease (PCOD) is a complex hormonal disorder that affects approximately 1 in 10 women of childbearing age. It's characterized by a combination of symptoms that can vary significantly from one woman to another, making diagnosis sometimes challenging.</p>
+                        
+                        <h3>Common Symptoms of PCOD</h3>
+                        <p>The most common symptoms of PCOD include:</p>
+                        <ul>
+                            <li>Irregular menstrual cycles or absence of menstruation</li>
+                            <li>Excessive hair growth (hirsutism), typically on the face, chest, back or buttocks</li>
+                            <li>Weight gain and difficulty losing weight</li>
+                            <li>Thinning hair or hair loss from the head</li>
+                            <li>Oily skin or acne</li>
+                            <li>Difficulty getting pregnant (due to irregular ovulation or failure to ovulate)</li>
+                            <li>Darkened skin patches, particularly along neck creases, in the groin, and underneath breasts</li>
+                            <li>Skin tags, which are small excess flaps of skin in the armpits or neck area</li>
+                        </ul>
+                        
+                        <h3>Diagnosing PCOD</h3>
+                        <p>There's no single test to definitively diagnose PCOD. Doctors typically use the Rotterdam criteria, which requires at least two of the following three features:</p>
+                        <ol>
+                            <li>Irregular or absent periods indicating problems with ovulation</li>
+                            <li>Clinical or biochemical signs of hyperandrogenism (excess male hormones)</li>
+                            <li>Polycystic ovaries visible on ultrasound</li>
+                        </ol>
+                        
+                        <p>Your doctor will likely start with a detailed medical history and physical exam, including a pelvic exam. Blood tests to measure hormone levels, glucose tolerance, and cholesterol may be ordered. An ultrasound can check the appearance of your ovaries and the thickness of the lining of your uterus.</p>
+                        
+                        <h3>Differential Diagnosis</h3>
+                        <p>It's important to rule out other conditions that can mimic PCOD symptoms, such as thyroid disorders, hyperprolactinemia, and non-classical congenital adrenal hyperplasia. This is why comprehensive testing is crucial for accurate diagnosis.</p>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/IvbjjJdKWTg" title="Understanding PCOS | 3D Animation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+                             <iframe width="560" height="315" src="https://www.youtube.com/embed/NcGeMWaF4ac" title="Understanding PCOS Symptoms and Treatment: How To Manage Your PCOS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p style="margin-top: 15px; font-style: italic;">Video: Understanding PCOD Diagnosis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article 2 -->
+    <section id="article2" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('blog')">← Back to Blog</a>
+                <div class="article-container">
+                    <h1 class="article-title">Best Diet Practices for PCOD Management</h1>
+                    <p class="article-meta">Published on May 15, 2023 by Nutritionist Emily Wilson</p>
+                    <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PCOD Diet" class="article-img">
+                    <div class="article-content">
+                        <p>Diet plays a crucial role in managing Polycystic Ovarian Disease (PCOD). The right nutritional approach can help regulate hormones, improve insulin sensitivity, support weight management, and reduce inflammation - all key factors in PCOD management.</p>
+                        
+                        <h3>Key Dietary Principles for PCOD</h3>
+                        <p>When planning meals for PCOD management, focus on these principles:</p>
+                        <ul>
+                            <li><strong>Low Glycemic Index (GI) Foods:</strong> Choose complex carbohydrates that digest slowly to prevent insulin spikes.</li>
+                            <li><strong>Anti-inflammatory Foods:</strong> Incorporate foods rich in omega-3 fatty acids and antioxidants.</li>
+                            <li><strong>Balanced Macronutrients:</strong> Combine protein, healthy fats, and fiber with each meal.</li>
+                            <li><strong>Regular Meal Timing:</strong> Eat at consistent times to help regulate blood sugar levels.</li>
+                            <li><strong>Adequate Hydration:</strong> Drink plenty of water throughout the day.</li>
+                        </ul>
+                        
+                        <h3>Recommended Foods</h3>
+                        <p>Include these foods regularly in your diet:</p>
+                        <ul>
+                            <li><strong>Vegetables:</strong> Leafy greens, broccoli, cauliflower, Brussels sprouts, peppers</li>
+                            <li><strong>Fruits:</strong> Berries, apples, pears, citrus fruits (in moderation)</li>
+                            <li><strong>Whole Grains:</strong> Quinoa, brown rice, oats, whole wheat</li>
+                            <li><strong>Lean Proteins:</strong> Chicken, turkey, fish, eggs, legumes</li>
+                            <li><strong>Healthy Fats:</strong> Avocados, nuts, seeds, olive oil</li>
+                            <li><strong>Dairy Alternatives:</strong> Almond milk, coconut yogurt (many with PCOD are sensitive to dairy)</li>
+                        </ul>
+                        
+                        <h3>Foods to Limit or Avoid</h3>
+                        <p>These foods can exacerbate PCOD symptoms:</p>
+                        <ul>
+                            <li>Refined carbohydrates (white bread, pastries, white rice)</li>
+                            <li>Sugary foods and beverages</li>
+                            <li>Processed and fried foods</li>
+                            <li>Excessive caffeine</li>
+                            <li>Alcohol</li>
+                            <li>High-fat dairy products (for some women)</li>
+                        </ul>
+                        
+                        <h3>Sample Meal Plan</h3>
+                        <p>Here's a day of PCOD-friendly meals:</p>
+                        <p><strong>Breakfast:</strong> Vegetable omelet with spinach and mushrooms, slice of whole grain toast, 1/2 avocado</p>
+                        <p><strong>Snack:</strong> Handful of almonds and an apple</p>
+                        <p><strong>Lunch:</strong> Grilled salmon with quinoa and roasted Brussels sprouts</p>
+                        <p><strong>Snack:</strong> Greek yogurt with berries and chia seeds</p>
+                        <p><strong>Dinner:</strong> Chicken stir-fry with mixed vegetables and brown rice</p>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                             <iframe width="560" height="315" src="https://www.youtube.com/embed/I94SJM07PSE" title="Indian Diet Plan For PCOD | Dr Anjali Kumar | Maitri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p style="margin-top: 15px; font-style: italic;">A balanced plate for PCOD management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Article 3 -->
+      <section id="article3" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('blog')">← Back to Blog</a>
+                <div class="article-container">
+                    <h1 class="article-title">Exercise Routines for PCOD Patients</h1>
+                    <p class="article-meta">Published on June 15, 2023 by Dr. Emily Wilson</p>
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Woman exercising" class="article-img">
+                    <div class="article-content">
+                        <p>Regular exercise is one of the most effective ways to manage PCOD symptoms and maintain a healthy weight. Physical activity helps improve insulin sensitivity, regulate hormones, and reduce inflammation - all of which are crucial for women with PCOD.</p>
+                        
+                        <h3>Most Beneficial Exercises for PCOD</h3>
+                        <p>While any physical activity is beneficial, these exercises are particularly effective for PCOD management:</p>
+                        <ul>
+                            <li><strong>Aerobic exercises:</strong> Brisk walking, swimming, cycling, or dancing for 30-45 minutes daily</li>
+                            <li><strong>Strength training:</strong> Weight lifting or resistance exercises 2-3 times per week</li>
+                            <li><strong>Yoga:</strong> Specific poses like Bhujangasana (Cobra pose) and Dhanurasana (Bow pose) help regulate hormones</li>
+                            <li><strong>High-Intensity Interval Training (HIIT):</strong> Short bursts of intense exercise followed by recovery periods</li>
+                            <li><strong>Pilates:</strong> Helps strengthen core muscles and improve flexibility</li>
+                            <li><strong>Mind-body exercises:</strong> Tai chi or qigong to reduce stress levels</li>
+                        </ul>
+                        
+                        <h3>Creating an Effective Exercise Plan</h3>
+                        <p>For optimal results, follow these guidelines when designing your exercise routine:</p>
+                        <ol>
+                            <li>Aim for at least 150 minutes of moderate exercise or 75 minutes of vigorous exercise weekly</li>
+                            <li>Combine different types of exercise for comprehensive benefits</li>
+                            <li>Start slowly and gradually increase intensity to prevent injury</li>
+                            <li>Include rest days for recovery</li>
+                            <li>Choose activities you enjoy to maintain consistency</li>
+                        </ol>
+                        
+                        <p>Remember that even small amounts of physical activity can make a difference. If you're new to exercise, start with 10-15 minute sessions and gradually build up. Consistency is more important than intensity when beginning your fitness journey.</p>
+                        
+                        <h3>Exercise Tips for PCOD Patients</h3>
+                        <p>Women with PCOD should keep these special considerations in mind:</p>
+                        <ul>
+                            <li>Monitor your energy levels as hormonal imbalances can cause fatigue</li>
+                            <li>Stay hydrated throughout your workout</li>
+                            <li>Pair exercise with a balanced diet for maximum benefits</li>
+                            <li>Track your progress but be patient - results may take longer due to metabolic challenges</li>
+                            <li>Consult your doctor before starting any new exercise program, especially if you have other health conditions</li>
+                        </ul>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/GTVvhMPSoE8" title="20 Minute Yoga for PCOD | पीसीओडी के लिए योग @satvicyoga" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p style="margin-top: 15px; font-style: italic;">Video: Effective Workouts for PCOD Management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article 4 -->
+    <section id="article4" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('blog')">← Back to Blog</a>
+                <div class="article-container">
+                    <h1 class="article-title">Medications for PCOD: What You Need to Know</h1>
+                    <p class="article-meta">Published on July 5, 2023 by Dr. Michael Chen</p>
+                    <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PCOD Medications" class="article-img">
+                    <div class="article-content">
+                        <p>While lifestyle changes form the cornerstone of PCOD management, medications play a crucial role in addressing specific symptoms and preventing complications. Treatment is typically tailored to each patient's unique symptoms and reproductive goals.</p>
+                        
+                        <h3>Common Medications for PCOD</h3>
+                        <p>Doctors may prescribe various medications depending on the primary concerns:</p>
+                        <ul>
+                            <li><strong>Hormonal Birth Control:</strong> Pills, patches, or rings to regulate menstrual cycles and reduce androgen production</li>
+                            <li><strong>Anti-Androgens:</strong> Medications like spironolactone to reduce excessive hair growth and acne</li>
+                            <li><strong>Metformin:</strong> Originally for diabetes, it improves insulin resistance common in PCOD</li>
+                            <li><strong>Clomiphene/Letrozole:</strong> Fertility medications to induce ovulation</li>
+                            <li><strong>Progestin Therapy:</strong> To regulate periods without the estrogen in birth control</li>
+                            <li><strong>Statins:</strong> For managing high cholesterol levels sometimes associated with PCOD</li>
+                            <li><strong>Topical Treatments:</strong> For acne and hirsutism (excessive hair growth)</li>
+                        </ul>
+                        
+                        <h3>How These Medications Work</h3>
+                        <p>Understanding the mechanisms can help patients make informed decisions:</p>
+                        <ol>
+                            <li><strong>Hormonal contraceptives</strong> suppress ovarian androgen production and regulate estrogen-progesterone balance</li>
+                            <li><strong>Anti-androgens</strong> block the effects of male hormones on target tissues like hair follicles</li>
+                            <li><strong>Metformin</strong> decreases glucose production in the liver and improves insulin sensitivity</li>
+                            <li><strong>Ovulation induction drugs</strong> stimulate the pituitary gland to release hormones needed for ovulation</li>
+                        </ol>
+                        
+                        <p>Most patients require a combination approach, and medications may need adjustment over time as symptoms change or treatment goals evolve (like transitioning from cycle regulation to fertility support).</p>
+                        
+                        <h3>Potential Side Effects and Considerations</h3>
+                        <p>While generally safe, PCOD medications can have side effects:</p>
+                        <ul>
+                            <li>Birth control pills may cause nausea, breast tenderness, or mood changes</li>
+                            <li>Anti-androgens aren't suitable during pregnancy due to risk of fetal abnormalities</li>
+                            <li>Metformin can cause gastrointestinal upset, especially when first starting</li>
+                            <li>Fertility medications may increase risk of multiple pregnancies</li>
+                            <li>Long-term use of some medications requires monitoring of liver function or other parameters</li>
+                        </ul>
+                        
+                        <p>Always discuss your complete medical history with your doctor, including any supplements or herbs you're taking, as these may interact with prescribed medications.</p>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                           <iframe width="560" height="315" src="https://www.youtube.com/embed/BAye3-Pzetk" title="10 Best Supplements For PCOD |  Dr Anjali Kumar | Maitri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p style="margin-top: 15px; font-style: italic;">Video: Understanding PCOD Medications</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article 5 -->
+    <section id="article5" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('blog')">← Back to Blog</a>
+                <div class="article-container">
+                    <h1 class="article-title">PCOD and Fertility: What to Expect</h1>
+                    <p class="article-meta">Published on August 10, 2023 by Dr. Rebecca Miller</p>
+                    <img src="https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PCOD and Fertility" class="article-img">
+                    <div class="article-content">
+                        <p>Polycystic Ovarian Disease (PCOD) is one of the most common causes of female infertility, affecting approximately 70-80% of women with ovulation disorders. However, with proper understanding and management, many women with PCOD can successfully conceive.</p>
+                        
+                        <h3>How PCOD Affects Fertility</h3>
+                        <p>PCOD impacts fertility through several mechanisms:</p>
+                        <ul>
+                            <li><strong>Irregular ovulation:</strong> Hormonal imbalances prevent regular egg release</li>
+                            <li><strong>Follicle development issues:</strong> Eggs may not mature properly within follicles</li>
+                            <li><strong>Insulin resistance:</strong> Affects hormone production and ovulation</li>
+                            <li><strong>Increased androgen levels:</strong> Interfere with follicle development</li>
+                            <li><strong>Endometrial changes:</strong> Irregular periods can affect uterine lining quality</li>
+                        </ul>
+                        
+                        <h3>Fertility Treatment Options</h3>
+                        <p>Several approaches can help women with PCOD conceive:</p>
+                        <ol>
+                            <li><strong>Lifestyle modifications:</strong> Weight loss (even 5-10% of body weight) can restore ovulation</li>
+                            <li><strong>Ovulation induction:</strong> Medications like clomiphene citrate or letrozole stimulate ovulation</li>
+                            <li><strong>Metformin therapy:</strong> Improves insulin sensitivity and may restore regular cycles</li>
+                            <li><strong>Gonadotropin injections:</strong> For women who don't respond to oral medications</li>
+                            <li><strong>In vitro fertilization (IVF):</strong> Recommended when other treatments fail or there are additional fertility factors</li>
+                            <li><strong>Ovarian drilling:</strong> A laparoscopic procedure that may help restore ovulation</li>
+                        </ol>
+                        
+                        <h3>What to Expect During Treatment</h3>
+                        <p>The fertility journey with PCOD often involves:</p>
+                        <ul>
+                            <li>More monitoring with ultrasounds and blood tests to track follicle development</li>
+                            <li>Possible need for multiple treatment cycles before success</li>
+                            <li>Higher risk of multiple pregnancies with certain treatments</li>
+                            <li>Increased risk of ovarian hyperstimulation syndrome (OHSS) with some therapies</li>
+                            <li>Potential need to address other PCOD symptoms (like insulin resistance) simultaneously</li>
+                        </ul>
+                        
+                        <p>It's important to work with a fertility specialist who understands PCOD. They can create a personalized treatment plan considering your age, symptom severity, how long you've been trying to conceive, and other health factors.</p>
+                        
+                        <h3>Improving Fertility Naturally</h3>
+                        <p>While medical treatments are often necessary, these lifestyle approaches can help:</p>
+                        <ul>
+                            <li>Maintain a healthy BMI (body mass index)</li>
+                            <li>Follow a low-glycemic, anti-inflammatory diet</li>
+                            <li>Engage in regular moderate exercise</li>
+                            <li>Manage stress through techniques like yoga or meditation</li>
+                            <li>Track menstrual cycles and ovulation signs</li>
+                            <li>Consider supplements like inositol (under medical supervision)</li>
+                        </ul>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/UAkvFefhJRU" title="Understanding PCOS and its Impact on fertility" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p style="margin-top: 15px; font-style: italic;">Video: Fertility Options for Women with PCOD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article 6 -->
+    <section id="article6" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('blog')">← Back to Blog</a>
+                <div class="article-container">
+                    <h1 class="article-title">Mental Health and PCOD: The Connection</h1>
+                    <p class="article-meta">Published on September 15, 2023 by Dr. Priya Sharma</p>
+                    <img src="https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mental Health and PCOD" class="article-img">
+                    <div class="article-content">
+                        <p>Polycystic Ovarian Disease (PCOD) affects more than just physical health - it has significant psychological impacts that are often overlooked. Research shows women with PCOD are 3 times more likely to experience anxiety and depression compared to women without the condition, highlighting the crucial mind-body connection in this disorder.</p>
+                        
+                        <h3>The Psychological Impact of PCOD</h3>
+                        <p>PCOD can affect mental health through multiple pathways:</p>
+                        <ul>
+                            <li><strong>Hormonal imbalances:</strong> Fluctuating hormones directly affect mood regulation</li>
+                            <li><strong>Body image concerns:</strong> Weight gain, acne, and excess hair growth can impact self-esteem</li>
+                            <li><strong>Chronic stress:</strong> Managing a long-term condition creates psychological strain</li>
+                            <li><strong>Fertility worries:</strong> Concerns about conception can cause significant distress</li>
+                            <li><strong>Sleep disturbances:</strong> Common in PCOD and linked to mood disorders</li>
+                            <li><strong>Social stigma:</strong> Visible symptoms may lead to social anxiety or isolation</li>
+                        </ul>
+                        
+                        <h3>Common Mental Health Challenges</h3>
+                        <p>Women with PCOD frequently experience:</p>
+                        <ol>
+                            <li><strong>Depression:</strong> Persistent sadness, hopelessness, or loss of interest in activities</li>
+                            <li><strong>Anxiety disorders:</strong> Including generalized anxiety and social anxiety</li>
+                            <li><strong>Eating disorders:</strong> Particularly binge eating disorder and emotional eating</li>
+                            <li><strong>Poor body image:</strong> Negative self-perception due to physical changes</li>
+                            <li><strong>Reduced quality of life:</strong> Affecting relationships, work, and daily functioning</li>
+                        </ol>
+                        
+                        <h3>Strategies for Mental Wellness</h3>
+                        <p>These approaches can help manage the psychological aspects of PCOD:</p>
+                        <ul>
+                            <li><strong>Professional support:</strong> Therapy (especially CBT) can help develop coping strategies</li>
+                            <li><strong>Mindfulness practices:</strong> Meditation and yoga reduce stress and improve emotional regulation</li>
+                            <li><strong>Support groups:</strong> Connecting with others facing similar challenges reduces isolation</li>
+                            <li><strong>Regular exercise:</strong> Boosts endorphins and improves body image</li>
+                            <li><strong>Balanced nutrition:</strong> A nutrient-rich diet supports brain health</li>
+                            <li><strong>Sleep hygiene:</strong> Prioritizing quality sleep improves mood and hormone regulation</li>
+                            <li><strong>Medication when needed:</strong> Antidepressants or anti-anxiety medications may be appropriate</li>
+                        </ul>
+                        
+                        <h3>Breaking the Stigma</h3>
+                        <p>It's important to:</p>
+                        <ul>
+                            <li>Recognize that mental health struggles with PCOD are common and valid</li>
+                            <li>Seek help without shame or self-blame</li>
+                            <li>Communicate openly with healthcare providers about emotional symptoms</li>
+                            <li>Educate loved ones about the psychological aspects of PCOD</li>
+                            <li>Practice self-compassion and celebrate small victories</li>
+                        </ul>
+                        
+                        <p>Remember that addressing mental health is just as important as managing physical symptoms. A holistic treatment approach that includes psychological support leads to better outcomes and improved quality of life for women with PCOD.</p>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/WoMB6M3dWNE" title="PCOS and Mental Health, Is there a connection? | Dr.Anjali Kumar | Dr. Jyoti Kapoor | Maitri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p style="margin-top: 15px; font-style: italic;">Video: Managing Mental Health with PCOD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article 7 -->
+     <section id="article7" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('blog')">← Back to Blog</a>
+                <div class="article-container">
+                    <h1 class="article-title">Natural Remedies for PCOD Symptoms</h1>
+                    <p class="article-meta">Published on October 5, 2023 by Dr. Ananya Patel</p>
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Natural Remedies for PCOD" class="article-img">
+                    <div class="article-content">
+                        <p>While medical treatment is essential for managing PCOD, many women find complementary natural approaches helpful in alleviating symptoms. These remedies work best when combined with professional medical care and lifestyle modifications.</p>
+                        
+                        <h3>Dietary Approaches for PCOD</h3>
+                        <p>Nutrition plays a crucial role in managing PCOD symptoms naturally:</p>
+                        <ul>
+                            <li><strong>Anti-inflammatory foods:</strong> Berries, fatty fish, leafy greens, and nuts</li>
+                            <li><strong>Low-glycemic index foods:</strong> Whole grains, legumes, and non-starchy vegetables</li>
+                            <li><strong>Fiber-rich foods:</strong> Helps regulate blood sugar and hormone levels</li>
+                            <li><strong>Healthy fats:</strong> Avocados, olive oil, and nuts support hormone production</li>
+                            <li><strong>Herbal teas:</strong> Spearmint tea may help reduce excess androgen levels</li>
+                            <li><strong>Probiotic foods:</strong> Yogurt, kefir, and fermented foods support gut health</li>
+                        </ul>
+                        
+                        <h3>Effective Herbal Supplements</h3>
+                        <p>These natural supplements show promise for PCOD management:</p>
+                        <ol>
+                            <li><strong>Inositol:</strong> Improves insulin sensitivity and ovarian function</li>
+                            <li><strong>Cinnamon:</strong> May help regulate menstrual cycles and blood sugar</li>
+                            <li><strong>Turmeric:</strong> Its anti-inflammatory properties may help with PCOD symptoms</li>
+                            <li><strong>Ashwagandha:</strong> Helps manage stress and cortisol levels</li>
+                            <li><strong>Shatavari:</strong> An Ayurvedic herb that may support hormonal balance</li>
+                            <li><strong>Flaxseeds:</strong> Rich in lignans that help regulate estrogen levels</li>
+                        </ol>
+                        
+                        <h3>Lifestyle Modifications</h3>
+                        <p>Natural approaches beyond diet can significantly impact PCOD:</p>
+                        <ul>
+                            <li><strong>Regular exercise:</strong> 30 minutes daily of moderate activity improves insulin sensitivity</li>
+                            <li><strong>Stress management:</strong> Yoga, meditation, and deep breathing reduce cortisol</li>
+                            <li><strong>Quality sleep:</strong> 7-9 hours nightly helps regulate hunger hormones</li>
+                            <li><strong>Acupuncture:</strong> May help restore regular menstrual cycles</li>
+                            <li><strong>Dry brushing:</strong> Some report benefits for lymphatic drainage and circulation</li>
+                            <li><strong>Essential oils:</strong> Certain oils like lavender may help manage stress</li>
+                        </ul>
+                        
+                        <h3>Important Considerations</h3>
+                        <p>When trying natural remedies:</p>
+                        <ul>
+                            <li>Always consult your doctor before starting new supplements</li>
+                            <li>Natural doesn't always mean safe - some herbs interact with medications</li>
+                            <li>Results may take 3-6 months of consistent practice</li>
+                            <li>Track symptoms to identify what works best for your body</li>
+                            <li>Combine natural approaches with medical treatment for best results</li>
+                            <li>Be wary of "miracle cure" claims - PCOD management requires a multifaceted approach</li>
+                        </ul>
+                        
+                        <p>Remember that every woman's body responds differently to natural remedies. What works for one person may not work for another, so patience and experimentation under medical guidance are key.</p>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/5OygSjbkK6Y" title="HOW TO MANAGE PCOD/PCOS NATURALLY? | Causes, Symptoms, Natural Remedies of PCOD/PCOS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p style="margin-top: 15px; font-style: italic;">Video: Natural Approaches to PCOD Management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article 8 -->
+     <section id="article8" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('blog')">← Back to Blog</a>
+                <div class="article-container">
+                    <h1 class="article-title">Long-term Health Effects of PCOD</h1>
+                    <p class="article-meta">Published on November 10, 2023 by Dr. Elizabeth Carter</p>
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Long-term PCOD Health Effects" class="article-img">
+                    <div class="article-content">
+                        <p>While Polycystic Ovarian Disease (PCOD) is often discussed in terms of its immediate symptoms, the long-term health implications can be equally significant. Women with PCOD face increased risks for several chronic conditions, making proactive management essential for long-term wellbeing.</p>
+                        
+                        <h3>Major Long-Term Health Risks</h3>
+                        <p>PCOD is associated with several serious health concerns that may develop over time:</p>
+                        <ul>
+                            <li><strong>Type 2 Diabetes:</strong> Up to 50% of women with PCOD develop prediabetes or diabetes before age 40</li>
+                            <li><strong>Cardiovascular Disease:</strong> Increased risk of high blood pressure, heart disease, and stroke</li>
+                            <li><strong>Endometrial Cancer:</strong> Irregular periods can lead to endometrial hyperplasia</li>
+                            <li><strong>Metabolic Syndrome:</strong> Cluster of conditions including high blood pressure and cholesterol</li>
+                            <li><strong>Non-alcoholic Fatty Liver Disease (NAFLD):</strong> Affects up to 55% of women with PCOD</li>
+                            <li><strong>Obstructive Sleep Apnea:</strong> More common in women with PCOD, especially those overweight</li>
+                            <li><strong>Mental Health Disorders:</strong> Chronic anxiety and depression risks persist long-term</li>
+                        </ul>
+                        
+                        <h3>Understanding the Mechanisms</h3>
+                        <p>These long-term effects stem from several underlying factors:</p>
+                        <ol>
+                            <li><strong>Insulin Resistance:</strong> Affects nearly 70% of women with PCOD, driving metabolic complications</li>
+                            <li><strong>Chronic Inflammation:</strong> Elevated inflammatory markers contribute to multiple disease processes</li>
+                            <li><strong>Hormonal Imbalances:</strong> Excess androgens and estrogen dominance have systemic effects</li>
+                            <li><strong>Weight Management Challenges:</strong> PCOD makes weight loss difficult, exacerbating other risks</li>
+                            <li><strong>Menstrual Irregularities:</strong> Prolonged absence of periods affects endometrial health</li>
+                        </ol>
+                        
+                        <h3>Prevention and Risk Reduction</h3>
+                        <p>These strategies can help mitigate long-term health risks:</p>
+                        <ul>
+                            <li><strong>Regular health screenings:</strong> Annual glucose tests, lipid profiles, and blood pressure checks</li>
+                            <li><strong>Weight management:</strong> Even 5-10% weight loss significantly reduces risks</li>
+                            <li><strong>Balanced nutrition:</strong> Mediterranean-style diet shows particular benefits</li>
+                            <li><strong>Consistent physical activity:</strong> Aim for 150 minutes of moderate exercise weekly</li>
+                            <li><strong>Period regulation:</strong> Hormonal therapy or periodic progesterone to protect the endometrium</li>
+                            <li><strong>Stress reduction:</strong> Chronic stress exacerbates metabolic and hormonal issues</li>
+                            <li><strong>Smoking cessation:</strong> Smoking dramatically increases cardiovascular risks</li>
+                        </ul>
+                        
+                        <h3>Special Considerations by Life Stage</h3>
+                        <p>Long-term management should adapt as women age:</p>
+                        <ul>
+                            <li><strong>Reproductive years:</strong> Focus on fertility, menstrual regulation, and metabolic health</li>
+                            <li><strong>Perimenopause:</strong> Monitor for worsening insulin resistance and lipid profiles</li>
+                            <li><strong>Postmenopause:</strong> Increased vigilance for cardiovascular disease and diabetes</li>
+                            <li><strong>Geriatric years:</strong> Continued monitoring for PCOD-related complications</li>
+                        </ul>
+                        
+                        <p>While PCOD presents significant long-term health challenges, early intervention and consistent management can dramatically improve outcomes. Working closely with healthcare providers to develop a personalized, lifelong care plan is crucial for women with PCOD.</p>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/aUnENA-u0co" title="Can’t Lose Weight or Conceive? PCOD &amp; PCOS Could Be to Blame| Treatment Cure | Gynaecology Women" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p style="margin-top: 15px; font-style: italic;">Video: Managing Long-term PCOD Health Risks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article 9 -->
+     <section id="article9" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('blog')">← Back to Blog</a>
+                <div class="article-container">
+                    <h1 class="article-title">Success Stories: Living Well with PCOD</h1>
+                    <p class="article-meta">Published on December 15, 2023 by Dr. Maya Sharma</p>
+                    <img src="https://images.unsplash.com/photo-1494172961521-33799ddd43a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Women celebrating PCOD success" class="article-img">
+                    <div class="article-content">
+                        <p>While PCOD presents significant challenges, countless women have found ways to thrive despite their diagnosis. These inspiring stories showcase the resilience, determination, and creativity of women who have successfully managed their PCOD symptoms and reclaimed their health.</p>
+                        
+                        <h3>Priya's Weight Loss Journey</h3>
+                        <p>"After being diagnosed with PCOD at 22, I struggled with my weight for years. At my heaviest, I weighed 98kg and had given up hope. Then I discovered strength training and mindful eating. Over 18 months, I lost 32kg through consistent weight training and a balanced diet. My cycles became regular for the first time in a decade!"</p>
+                        <p><strong>Key strategies that worked for Priya:</strong></p>
+                        <ul>
+                            <li>Strength training 4 times weekly</li>
+                            <li>High-protein, moderate-carb diet</li>
+                            <li>Tracking menstrual cycles to understand patterns</li>
+                            <li>Joining a PCOD support group for motivation</li>
+                        </ul>
+                        
+                        <h3>Ananya's Fertility Success</h3>
+                        <p>"After two years of unsuccessful attempts to conceive, my doctor suggested IVF. Instead, I decided to try natural methods first. With my doctor's guidance, I used inositol supplements, acupuncture, and a strict sleep schedule. After 8 months, I conceived naturally! My beautiful daughter is now 2 years old."</p>
+                        <p><strong>Ananya's fertility-boosting routine:</strong></p>
+                        <ol>
+                            <li>Inositol supplements twice daily</li>
+                            <li>Acupuncture sessions every 2 weeks</li>
+                            <li>Strict 10pm bedtime routine</li>
+                            <li>Daily 30-minute walks</li>
+                            <li>Reduced sugar and processed foods</li>
+                        </ol>
+                        
+                        <h3>Sophie's Holistic Approach</h3>
+                        <p>"My PCOD symptoms were destroying my self-esteem - acne, hair loss, and unpredictable moods. Medication helped, but I wanted a more holistic solution. Combining yoga, Ayurveda, and cognitive behavioral therapy transformed my health. My skin cleared, my hair grew back, and I've maintained these results for 5 years now."</p>
+                        <p><strong>Elements of Sophie's holistic plan:</strong></p>
+                        <ul>
+                            <li>Daily yoga and pranayama (breathwork)</li>
+                            <li>Ayurvedic herbs like shatavari and ashwagandha</li>
+                            <li>Weekly therapy sessions to manage stress</li>
+                            <li>Digital detox every Sunday</li>
+                            <li>Moon cycle tracking to understand hormonal patterns</li>
+                        </ul>
+                        
+                        <h3>Common Themes in Success Stories</h3>
+                        <p>These inspiring women share some important lessons:</p>
+                        <ul>
+                            <li><strong>Consistency matters more than perfection</strong> - Small, daily efforts create lasting change</li>
+                            <li><strong>Personalization is key</strong> - What works for one woman may not work for another</li>
+                            <li><strong>Professional guidance helps</strong> - All worked closely with healthcare providers</li>
+                            <li><strong>Mindset shifts are powerful</strong> - Viewing PCOD as manageable rather than debilitating</li>
+                            <li><strong>Community support accelerates progress</strong> - Finding others facing similar challenges</li>
+                        </ul>
+                        
+                        <p>While these stories are inspirational, remember that every PCOD journey is unique. Progress often comes with setbacks, and what matters most is continuing to move forward. If you're struggling with PCOD, take hope - with the right approach and support, symptom management and quality of life improvement are absolutely possible.</p>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/3mUa10afiic" title="How I Reversed My PCOS Naturally (Weight Loss + Acne + Period)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p style="margin-top: 15px; font-style: italic;">Video: Real Women Share Their PCOD Success Stories</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article 10 -->
+     <section id="article10" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('blog')">← Back to Blog</a>
+                <div class="article-container">
+                    <h1 class="article-title">Latest Research on PCOD Treatments</h1>
+                    <p class="article-meta">Published on January 20, 2024 by Dr. Rachel Nguyen</p>
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PCOD Research" class="article-img">
+                    <div class="article-content">
+                        <p>The scientific understanding of Polycystic Ovarian Disease (PCOD) is rapidly evolving, with groundbreaking research revealing new treatment possibilities. Recent studies are shifting the paradigm from symptom management to addressing root causes, offering hope for more effective interventions.</p>
+                        
+                        <h3>Emerging Pharmaceutical Advances</h3>
+                        <p>Cutting-edge research is exploring several promising drug therapies:</p>
+                        <ul>
+                            <li><strong>GLP-1 receptor agonists:</strong> Semaglutide shows potential for weight management and metabolic improvement in PCOD patients</li>
+                            <li><strong>Androgen receptor blockers:</strong> New selective blockers may reduce hirsutism without side effects</li>
+                            <li><strong>FGF21 analogs:</strong> Early trials show improvement in insulin sensitivity and lipid profiles</li>
+                            <li><strong>Anti-inflammatory biologics:</strong> Targeting chronic inflammation in PCOD pathophysiology</li>
+                            <li><strong>Gut microbiome modulators:</strong> Investigating probiotics and fecal transplants for metabolic benefits</li>
+                        </ul>
+                        
+                        <h3>Breakthroughs in Nutritional Science</h3>
+                        <p>Recent nutritional research highlights:</p>
+                        <ol>
+                            <li><strong>Time-restricted eating:</strong> 8-10 hour eating windows improve metabolic markers regardless of weight loss</li>
+                            <li><strong>Myo-inositol combinations:</strong> Enhanced formulations with D-chiro-inositol show superior results</li>
+                            <li><strong>Polyphenol-rich diets:</strong> Berries, dark chocolate and green tea may improve ovarian function</li>
+                            <li><strong>Omega-3 supplementation:</strong> High-dose EPA/DHA reduces testosterone levels in recent trials</li>
+                            <li><strong>Vitamin D optimization:</strong> New studies confirm its role in follicular development</li>
+                        </ol>
+                        
+                        <h3>Innovative Non-Drug Therapies</h3>
+                        <p>Exciting non-pharmaceutical approaches under investigation:</p>
+                        <ul>
+                            <li><strong>Transcranial magnetic stimulation:</strong> Early research shows promise for improving insulin sensitivity</li>
+                            <li><strong>Photobiomodulation:</strong> Red light therapy may improve ovarian blood flow</li>
+                            <li><strong>Personalized exercise genomics:</strong> Tailoring workout regimens based on genetic markers</li>
+                            <li><strong>Vaginal microbiome transplants:</strong> Experimental therapy for hormonal regulation</li>
+                            <li><strong>AI-powered treatment algorithms:</strong> Machine learning models predicting individual treatment responses</li>
+                        </ul>
+                        
+                        <h3>Future Directions in PCOD Research</h3>
+                        <p>Areas of active investigation include:</p>
+                        <ul>
+                            <li><strong>Epigenetic therapies:</strong> Targeting DNA methylation patterns in PCOD</li>
+                            <li><strong>Stem cell applications:</strong> For ovarian tissue regeneration</li>
+                            <li><strong>Nanotechnology:</strong> Targeted drug delivery to ovarian tissues</li>
+                            <li><strong>CRISPR gene editing:</strong> Potential future applications for genetic components of PCOD</li>
+                            <li><strong>Digital therapeutics:</strong> App-based cognitive behavioral therapy for stress management</li>
+                        </ul>
+                        
+                        <p>While many of these treatments are still in experimental stages, they represent exciting possibilities for future PCOD management. Patients should consult with their healthcare providers about participating in clinical trials or incorporating evidence-based new approaches into their treatment plans.</p>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/3J5uD5GSvAw" title="PCOS Research: There is Hope for Polycystic Ovarian Syndrome 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p style="margin-top: 15px; font-style: italic;">Video: The Future of PCOD Treatments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+
+     <section id="services" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('home')">← Back to Home</a>
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-container">
+                    <div class="service-card">
+                        <div class="service-icon">👩‍⚕️</div>
+                        <h3 class="service-title">PRESCRIPTIONS</h3>
+                        <p class="service-desc">Connect with experienced doctors specializing in PCOD treatment and management.</p>
+                        <a href="#" class="service-btn" onclick="showSubService('doc')">Learn More</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💊</div>
+                        <h3 class="service-title">TREATMENTS</h3>
+                        <p class="service-desc">Explore various treatment options available for PCOD patients.</p>
+                        <a href="#" class="service-btn" onclick="showSubService('treatments')">Learn More</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🥗</div>
+                        <h3 class="service-title">DIET PLAN</h3>
+                        <p class="service-desc">Get personalized diet plans tailored for PCOD management based on your age and needs.</p>
+                        <a href="#" class="service-btn" onclick="showSubService('diet-plan')">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOC Sub-service -->
+    <section id="doc" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('services')">← Back to Services</a>
+                <div class="sub-service-container">
+                    <h1 class="sub-service-title">Doctor Prescriptions for PCOD</h1>
+                    <div class="sub-service-content">
+                        <div class="doctor-list">
+                            <h3>Common PCOD Prescriptions</h3>
+                            <div class="doctor-item">
+                                <p class="doctor-name">Dr. Priya Sharma, Endocrinologist</p>
+                                <p>"For patients with PCOD, I typically recommend a combination of lifestyle changes and medications. Metformin is often prescribed to improve insulin sensitivity, especially for those with insulin resistance. Birth control pills can help regulate menstrual cycles and reduce androgen levels. For women trying to conceive, letrozole or clomiphene may be used to induce ovulation."</p>
+                            </div>
+                            <div class="doctor-item">
+                                <p class="doctor-name">Dr. Anjali Patel, Gynecologist</p>
+                                <p>"My approach to PCOD treatment focuses on the patient's primary concerns. For acne and hirsutism, I often prescribe anti-androgen medications like spironolactone. Combined oral contraceptives containing both estrogen and progestin are effective for regulating periods. I always emphasize that even with medication, lifestyle modifications are crucial for long-term management."</p>
+                            </div>
+                            <div class="doctor-item">
+                                <p class="doctor-name">Dr. Neha Gupta, Reproductive Specialist</p>
+                                <p>"For fertility issues related to PCOD, we have several options. After confirming ovulation isn't occurring, we might start with clomiphene citrate. If that's not effective, letrozole often works well. In some cases, gonadotropins or assisted reproductive technologies like IVF may be considered. It's important to address insulin resistance first, as this can significantly improve outcomes."</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px;">
+                            <h3>Important Considerations</h3>
+                            <p>Medications for PCOD should always be prescribed by a qualified healthcare provider after proper diagnosis. Treatment plans are highly individualized based on:</p>
+                            <ul>
+                                <li>The patient's primary symptoms and concerns</li>
+                                <li>Whether pregnancy is desired</li>
+                                <li>Presence of other conditions like insulin resistance or diabetes</li>
+                                <li>Overall health status and medical history</li>
+                            </ul>
+                            <p style="margin-top: 15px;">Regular follow-ups are essential to monitor the effectiveness of treatment and make adjustments as needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TREATMENTS Sub-service -->
+    <section id="treatments" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('services')">← Back to Services</a>
+                <div class="sub-service-container">
+                    <h1 class="sub-service-title">PCOD Treatment Options</h1>
+                    <div class="sub-service-content">
+                        <div class="treatment-list">
+                            <h3>Medical Treatments</h3>
+                            <div class="treatment-item">
+                                <p class="treatment-name">Hormonal Birth Control</p>
+                                <p>Combination birth control pills containing estrogen and progestin can regulate menstrual cycles, reduce androgen levels, and help clear acne. Progestin-only options are available for women who can't take estrogen.</p>
+                            </div>
+                            <div class="treatment-item">
+                                <p class="treatment-name">Anti-Androgen Medications</p>
+                                <p>Drugs like spironolactone block the effects of androgens and can reduce hair loss, hirsutism, and acne. These are often combined with birth control for better results.</p>
+                            </div>
+                            <div class="treatment-item">
+                                <p class="treatment-name">Metformin</p>
+                                <p>Originally a diabetes medication, metformin improves insulin resistance which is common in PCOD. It may help with weight loss, restoring regular periods, and improving cholesterol levels.</p>
+                            </div>
+                            <div class="treatment-item">
+                                <p class="treatment-name">Fertility Medications</p>
+                                <p>For women trying to conceive, medications like clomiphene or letrozole can stimulate ovulation. In more challenging cases, gonadotropin injections or IVF may be options.</p>
+                            </div>
+                        </div>
+                        <div class="treatment-list" style="margin-top: 30px;">
+                            <h3>Lifestyle Treatments</h3>
+                            <div class="treatment-item">
+                                <p class="treatment-name">Dietary Changes</p>
+                                <p>A low-glycemic, anti-inflammatory diet rich in whole foods can significantly improve PCOD symptoms. Reducing processed foods, sugar, and refined carbs is particularly important.</p>
+                            </div>
+                            <div class="treatment-item">
+                                <p class="treatment-name">Exercise</p>
+                                <p>Regular physical activity helps reduce insulin resistance, manage weight, and lower inflammation. A combination of cardio and strength training is most effective.</p>
+                            </div>
+                            <div class="treatment-item">
+                                <p class="treatment-name">Weight Management</p>
+                                <p>Even modest weight loss (5-10% of body weight) can restore ovulation and improve hormone balance in overweight women with PCOD.</p>
+                            </div>
+                            <div class="treatment-item">
+                                <p class="treatment-name">Stress Reduction</p>
+                                <p>Chronic stress worsens PCOD symptoms. Techniques like meditation, yoga, and adequate sleep can help manage stress hormones.</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px;">
+                            <h3>Surgical Options</h3>
+                            <p>In rare cases when other treatments haven't worked, laparoscopic ovarian drilling (LOD) may be considered. This surgical procedure uses heat or laser to destroy androgen-producing tissue in the ovaries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIET PLAN Sub-service -->
+    <section id="diet-plan" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('services')">← Back to Services</a>
+                <div class="sub-service-container">
+                    <h1 class="sub-service-title">PCOD Diet Plans by Age</h1>
+                    <div class="sub-service-content">
+                        <p>Nutritional needs change throughout a woman's life, and PCOD management should adapt accordingly. Below are general diet recommendations tailored to different age groups. Remember to consult with a nutritionist for a personalized plan.</p>
+                        
+                        <div class="diet-plan">
+                            <p class="age-group">Teens (13-19 years)</p>
+                            <p>Focus on establishing healthy eating patterns that support growth and hormonal balance:</p>
+                            <ul>
+                                <li>Calcium-rich foods for bone development (leafy greens, fortified plant milks)</li>
+                                <li>Iron-rich foods to compensate for heavy periods (lentils, spinach, lean meats)</li>
+                                <li>Regular meals and snacks to stabilize blood sugar</li>
+                                <li>Limit sugary drinks and processed snacks</li>
+                                <li>Emphasize whole grains, lean proteins, and healthy fats</li>
+                            </ul>
+                            <p><strong>Sample Day:</strong> Greek yogurt with berries and nuts for breakfast, turkey and avocado wrap with veggies for lunch, grilled chicken with quinoa and roasted veggies for dinner, and fruit with nut butter for snacks.</p>
+                        </div>
+                        
+                        <div class="diet-plan">
+                            <p class="age-group">Young Adults (20-35 years)</p>
+                            <p>Focus on fertility and metabolic health:</p>
+                            <ul>
+                                <li>Plenty of antioxidant-rich fruits and vegetables</li>
+                                <li>Healthy fats for hormone production (avocados, nuts, olive oil)</li>
+                                <li>Lean proteins to support muscle mass</li>
+                                <li>Complex carbohydrates for sustained energy</li>
+                                <li>Limit alcohol and caffeine</li>
+                            </ul>
+                            <p><strong>Sample Day:</strong> Veggie omelet with whole grain toast for breakfast, salmon salad for lunch, stir-fried tofu with brown rice and vegetables for dinner, and hummus with veggies for snacks.</p>
+                        </div>
+                        
+                        <div class="diet-plan">
+                            <p class="age-group">Adults (36-50 years)</p>
+                            <p>Focus on maintaining metabolic health and preparing for perimenopause:</p>
+                            <ul>
+                                <li>Increased fiber to support digestion and heart health</li>
+                                <li>Calcium and vitamin D for bone health</li>
+                                <li>Anti-inflammatory foods to combat increasing insulin resistance</li>
+                                <li>Portion control to manage weight</li>
+                                <li>Regular protein intake to preserve muscle mass</li>
+                            </ul>
+                            <p><strong>Sample Day:</strong> Chia pudding with nuts and seeds for breakfast, lentil soup with whole grain bread for lunch, baked fish with sweet potato and greens for dinner, and Greek yogurt with flaxseeds for snacks.</p>
+                        </div>
+                        
+                        <div class="diet-plan">
+                            <p class="age-group">Post-Menopausal (50+ years)</p>
+                            <p>Focus on heart health, bone health, and maintaining healthy weight:</p>
+                            <ul>
+                                <li>Calcium and vitamin D-rich foods</li>
+                                <li>Omega-3 fatty acids for heart health</li>
+                                <li>High-fiber foods for digestive health</li>
+                                <li>Lean proteins to maintain muscle</li>
+                                <li>Limit sodium to manage blood pressure</li>
+                            </ul>
+                            <p><strong>Sample Day:</strong> Oatmeal with walnuts and cinnamon for breakfast, grilled chicken salad with olive oil dressing for lunch, baked salmon with quinoa and roasted vegetables for dinner, and cottage cheese with berries for snacks.</p>
+                        </div>
+                        
+                        <div style="margin-top: 30px;">
+                            <h3>General PCOD Diet Tips for All Ages</h3>
+                            <ul>
+                                <li>Eat regular meals to maintain stable blood sugar</li>
+                                <li>Combine protein, fiber, and healthy fats at each meal</li>
+                                <li>Stay well hydrated with water and herbal teas</li>
+                                <li>Limit processed foods and added sugars</li>
+                                <li>Consider supplements like inositol, vitamin D, or omega-3s after consulting your doctor</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <!-- Contact Section -->
+    <section id="contact" class="section hidden">
+        <div class="main-content">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showSection('home')">← Back to Home</a>
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3 class="contact-title">Get in Touch</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <span>+91 6281071682</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">✉️</span>
+                                <span>info@pcodcare.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">🏢</span>
+                                <span>123 Health Street, Wellness City, WC 12345</span>
+                            </div>
+                        </div>
+                        <div class="specialist-list">
+                            <h3>Nearby PCOD Specialists</h3>
+                            <div class="specialist-item">
+                                <p class="specialist-name">Dr. Priya Sharma, Endocrinologist</p>
+                                <p>Wellness Medical Center, 2 miles away</p>
+                                <p>Specializes in hormonal disorders including PCOD</p>
+                                <a href="tel:+15551234567" class="contact-specialist">Call Office</a>
+                            </div>
+                            <div class="specialist-item">
+                                <p class="specialist-name">Dr. Anjali Patel, Gynecologist</p>
+                                <p>Women's Health Clinic, 3.5 miles away</p>
+                                <p>Expert in PCOD diagnosis and treatment</p>
+                                <a href="tel:+15551234568" class="contact-specialist">Call Office</a>
+                            </div>
+                            <div class="specialist-item">
+                                <p class="specialist-name">Dr. Neha Gupta, Reproductive Endocrinologist</p>
+                                <p>Fertility Specialists, 5 miles away</p>
+                                <p>Focuses on PCOD-related fertility issues</p>
+                                <a href="tel:+15551234569" class="contact-specialist">Call Office</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d30405.33615376417!2d83.17501438609057!3d17.713183353471873!3m2!1i1024!2i768!4f13.1!2m1!1spcod%20specialists%20near%20me!5e0!3m2!1sen!2sin!4v1750952218752!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('blog')">Blog</a></li>
+                <li><a href="#" onclick="showSection('services')">Services</a></li>
+                <li><a href="#" onclick="showSection('contact')">Contact Us</a></li>
+                <!-- <li><a href="#" onclick="showSection('login')">Login</a></li> -->
+            </ul>
+            <p class="copyright">© 2023 PCOD Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Show specific section and hide others
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show requested section
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Initialize map if showing contact section
+            if (sectionId === 'contact') {
+                initMap();
+            }
+        }
+
+        // Show article and hide others
+        function showArticle(articleId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show requested article
+            document.getElementById(articleId).classList.remove('hidden');
+        }
+
+        // Show sub-service and hide others
+        function showSubService(subServiceId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show requested sub-service
+            document.getElementById(subServiceId).classList.remove('hidden');
+        }
+
+        // Initialize Google Map
+        function initMap() {
+            // In a real implementation, you would use the Google Maps API
+            // This is a placeholder for the demo
+            const mapElement = document.getElementById('map');
+            mapElement.innerHTML = '<div style="padding: 20px; text-align: center;"><h3>Map of Nearby PCOD Specialists</h3><p>In a real implementation, this would show an interactive Google Map with markers for nearby specialists.</p><iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d30405.33615376417!2d83.17501438609057!3d17.713183353471873!3m2!1i1024!2i768!4f13.1!2m1!1spcod%20specialists%20near%20me!5e0!3m2!1sen!2sin!4v1750952218752!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>';
+        }
+
+        // Form validation
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate mobile number
+            const mobile = document.getElementById('mobile').value;
+            const mobileError = document.getElementById('mobileError');
+            if (!/^\d{10}$/.test(mobile)) {
+                mobileError.style.display = 'block';
+            } else {
+                mobileError.style.display = 'none';
+            }
+            
+            // Validate password
+            const password = document.getElementById('password').value;
+            const passwordError = document.getElementById('passwordError');
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            
+            if (!passwordRegex.test(password)) {
+                passwordError.style.display = 'block';
+            } else {
+                passwordError.style.display = 'none';
+            }
+            
+            // If both valid, proceed with login
+            if (mobileError.style.display === 'none' && passwordError.style.display === 'none') {
+                alert('Login successful!');
+                // In a real implementation, you would submit the form here
+                // let home = document.querySelector("#home");
+                // window.location.home;
+            }
+        });
+
+        // Show home section by default
+        window.onload = function() {
+            showSection('home');
+        };
+    </script>
+</body>
+</html>

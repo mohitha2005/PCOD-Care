@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOD Screening Questionnaire</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f0ff;
+            background-image: url('https://images.unsplash.com/photo-1705097565168-fb30476501e5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fGJhY2tncm91bmQlMjBpbWFnZXMlMjBmb3IlMjBxdWVzdGlvbm5haXJlJTIwd2VicGFnZXxlbnwwfHwwfHx8MA%3D%3D');
+            background-size: cover;
+        }
+        h1 {
+            color: #6a3093;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .intro {
+            background-color: #e8d5ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+        .form-group:hover {
+            background-color: #ece0fa;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .radio-group {
+            margin-top: 10px;
+        }
+        .radio-option {
+            margin-bottom: 8px;
+        }
+        button {
+            background-color: #6a3093;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #4b1d6d;
+        }
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+        .high-risk {
+            background-color: #ffebee;
+            border-left: 5px solid #f44336;
+        }
+        .medium-risk {
+            background-color: #fff8e1;
+            border-left: 5px solid #ffc107;
+        }
+        .low-risk {
+            background-color: #e8f5e9;
+            border-left: 5px solid #4caf50;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            text-align: center;
+            color: #666;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background-color: #8e44ad;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+       
+
+    </style>
+</head>
+<body>
+    <h1>PCOD Screening Questionnaire</h1>
+    <a href="pcod.html" class="back-btn" onclick="showSection('home')">← Back to Home</a>
+    
+    <div class="intro">
+        <p>This questionnaire is designed to help identify potential symptoms of Polycystic Ovarian Disease (PCOD). Please answer all questions honestly based on your experiences over the past 6 months. Remember, this is not a diagnosis - only a healthcare professional can diagnose PCOD.</p>
+    </div>
+    
+    <form id="pcodForm">
+        <div class="form-group">
+            <label for="name">Your Name (optional):</label>
+            <input type="text" id="name" name="name">
+        </div>
+        
+        <div class="form-group">
+            <label for="age">Your Age:</label>
+            <input type="number" id="age" name="age" min="12" max="60" required>
+        </div>
+        
+        <div class="form-group">
+            <label>1. Do you experience irregular menstrual cycles (cycles shorter than 21 days or longer than 35 days)?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="q1_yes" name="q1" value="yes" required>
+                    <label for="q1_yes">Yes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="q1_no" name="q1" value="no">
+                    <label for="q1_no">No</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>2. Have you noticed excessive hair growth on your face, chest, or back (hirsutism)?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="q2_yes" name="q2" value="yes" required>
+                    <label for="q2_yes">Yes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="q2_no" name="q2" value="no">
+                    <label for="q2_no">No</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>3. Do you struggle with persistent acne that doesn't respond well to typical treatments?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="q3_yes" name="q3" value="yes" required>
+                    <label for="q3_yes">Yes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="q3_no" name="q3" value="no">
+                    <label for="q3_no">No</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>4. Have you experienced significant weight gain or found it difficult to lose weight?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="q4_yes" name="q4" value="yes" required>
+                    <label for="q4_yes">Yes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="q4_no" name="q4" value="no">
+                    <label for="q4_no">No</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>5. Have you noticed thinning hair or male-pattern baldness?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="q5_yes" name="q5" value="yes" required>
+                    <label for="q5_yes">Yes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="q5_no" name="q5" value="no">
+                    <label for="q5_no">No</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>6. Do you experience darkening of skin, particularly along neck creases, in the groin, or underneath breasts?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="q6_yes" name="q6" value="yes" required>
+                    <label for="q6_yes">Yes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="q6_no" name="q6" value="no">
+                    <label for="q6_no">No</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>7. Have you been diagnosed with insulin resistance or type 2 diabetes?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="q7_yes" name="q7" value="yes" required>
+                    <label for="q7_yes">Yes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="q7_no" name="q7" value="no">
+                    <label for="q7_no">No</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>8. Have you experienced fertility issues or irregular ovulation?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="q8_yes" name="q8" value="yes" required>
+                    <label for="q8_yes">Yes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="q8_no" name="q8" value="no">
+                    <label for="q8_no">No</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>9. Do you often feel fatigued or low on energy?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="q9_yes" name="q9" value="yes" required>
+                    <label for="q9_yes">Yes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="q9_no" name="q9" value="no">
+                    <label for="q9_no">No</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>10. Have you been told you have high levels of androgens (male hormones) in blood tests?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="q10_yes" name="q10" value="yes" required>
+                    <label for="q10_yes">Yes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="q10_no" name="q10" value="no">
+                    <label for="q10_no">No</label>
+                </div>
+            </div>
+        </div>
+        
+        <button type="submit">Evaluate My Answers</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <div class="footer">
+        <p><strong>Disclaimer:</strong> This questionnaire is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.</p>
+    </div>
+    
+    
+    <script>
+        document.getElementById('pcodForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Calculate score
+            let score = 0;
+            const questions = document.querySelectorAll('input[type="radio"]:checked');
+            
+            questions.forEach(question => {
+                if (question.value === 'yes') {
+                    score++;
+                }
+            });
+            
+            // Display result
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            
+            let name = document.getElementById('name').value || 'there';
+            
+            if (score >= 7) {
+                resultDiv.className = 'high-risk';
+                resultDiv.innerHTML = `
+                    <h2>Dear ${name},</h2>
+                    <p>Based on your answers, you have reported <strong>${score} out of 10</strong> potential symptoms of PCOD.</p>
+                    <p><strong>This suggests a high likelihood of PCOD.</strong> Many of your responses align with common PCOD symptoms.</p>
+                    <p>We strongly recommend consulting with a healthcare professional, preferably a gynecologist or endocrinologist, for proper evaluation. They may suggest blood tests (hormone levels, glucose tolerance) and possibly an ultrasound to confirm the diagnosis.</p>
+                    <p>Early diagnosis and management can help prevent complications like diabetes, heart disease, and fertility issues.</p>
+                `;
+            } else if (score >= 4) {
+                resultDiv.className = 'medium-risk';
+                resultDiv.innerHTML = `
+                    <h2>Dear ${name},</h2>
+                    <p>Based on your answers, you have reported <strong>${score} out of 10</strong> potential symptoms of PCOD.</p>
+                    <p><strong>This suggests a moderate possibility of PCOD.</strong> Some of your responses indicate symptoms that could be related to PCOD or other hormonal imbalances.</p>
+                    <p>It would be advisable to consult with a healthcare provider to discuss your symptoms. They can help determine if further testing is needed and rule out other potential causes.</p>
+                    <p>Tracking your menstrual cycles and symptoms can be helpful for your doctor's evaluation.</p>
+                `;
+            } else {
+                resultDiv.className = 'low-risk';
+                resultDiv.innerHTML = `
+                    <h2>Dear ${name},</h2>
+                    <p>Based on your answers, you have reported <strong>${score} out of 10</strong> potential symptoms of PCOD.</p>
+                    <p><strong>This suggests a low likelihood of PCOD.</strong> Your responses don't strongly indicate PCOD, but if you have concerns about any specific symptoms, it's always good to discuss them with a healthcare provider.</p>
+                    <p>Remember that PCOD symptoms can develop over time, so if you notice changes in your menstrual cycle, skin, hair, or weight in the future, consider getting reevaluated.</p>
+                `;
+            }
+            
+            // Scroll to result
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+            let btn = document.createElement("button");
+            btn.innerHTML = "Check services"; 
+            btn.classList.add("btn");
+            resultDiv.insertAdjacentElement("beforeend",btn);
+            btn.addEventListener("click",function(){
+                window.location = "file:///C:/Users/ssram/OneDrive/Documents/PCOD%5B1%5D/PCOD/pcod.html#";
+            });
+        });
+    </script>
+</body>
+</html>

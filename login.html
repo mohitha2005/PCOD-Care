@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOD Care - Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            /* background-color: #f4a9e5; */
+            background-image: url('login2.jpg');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        h1 {
+            color:  #8e44ad;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            height: 40px;
+            font-size: 40px;
+            
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color:  #8e44ad;
+        }
+        
+        .error {
+            color:  rgb(241, 132, 132);
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        button {
+            background-color:  #8e44ad;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            width: 100%;
+            transition: background-color 0.3s;
+            text-decoration: white;
+            
+        }
+        
+        button:hover {
+            background-color:  #b56dd3;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo img {
+            width: 300px;
+            height: 200px;
+            margin: 5px;
+            border-radius: 15px;
+            margin-top: auto;
+            
+        }
+        #loginForm a{
+            text-decoration: none;
+            color: white;
+        }
+        
+        .name-fields {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .name-fields .form-group {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo1.jpg" alt="PCOD Care Logo">
+        </div>
+        <h1>LOGIN</h1>
+        <form id="loginForm">
+            <div class="name-fields">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" placeholder="Enter first name (max 20 chars)" maxlength="20">
+                    <div id="firstNameError" class="error">First name must be 20 characters or less</div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" placeholder="Enter last name (max 20 chars)" maxlength="20">
+                    <div id="lastNameError" class="error">Last name must be 20 characters or less</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" placeholder="Enter 10-digit Indian mobile number">
+                <div id="mobileError" class="error">Please enter a valid 10-digit Indian mobile number</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="8+ chars with A-Z, a-z, 0-9, and special chars">
+                <div id="passwordError" class="error">Password must be at least 8 characters and include uppercase, lowercase, number, and special character</div>
+            </div>
+            
+            <button type="submit"onclick="window.">Login</a></button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset errors
+            document.getElementById('firstNameError').style.display = 'none';
+            document.getElementById('lastNameError').style.display = 'none';
+            document.getElementById('mobileError').style.display = 'none';
+            document.getElementById('passwordError').style.display = 'none';
+            
+            // Get values
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const password = document.getElementById('password').value;
+            
+            let isValid = true;
+            
+            // Validate first name
+            if (firstName.length === 0 || firstName.length > 20) {
+                document.getElementById('firstNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate last name
+            if (lastName.length === 0 || lastName.length > 20) {
+                document.getElementById('lastNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate mobile (10 digits, Indian format)
+            const mobileRegex = /^[6-9]\d{9}$/;
+            if (!mobileRegex.test(mobile)) {
+                document.getElementById('mobileError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate password
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                document.getElementById('passwordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                alert('logged successfully!');
+                window.location = "pcod.html";
+                // Here you would typically send the data to your server
+                // this.reset();
+
+                fetch("http://localhost:5000/api/auth/login", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ firstName, lastName, mobile, password })
+})
+.then(response => response.json())
+.then(data => {
+    if (data.message === "Login successful") {
+        alert("Logged in successfully!");
+        window.location = "pcod.html";
+    } else {
+        alert(data.error || "Login failed");
+    }
+})
+.catch(error => {
+    console.error("Error:", error);
+});
+
+            }
+        });
+
+
+     
+        // Real-time validation for mobile number
+        document.getElementById('mobile').addEventListener('input', function(e) {
+            const mobile = e.target.value.trim();
+            const mobileError = document.getElementById('mobileError');
+            
+            // Allow only numbers
+            e.target.value = mobile.replace(/\D/g, '');
+            
+            // Show error if not 10 digits or doesn't start with 6-9
+            if (mobile.length > 0 && (!/^[6-9]\d{0,9}$/.test(mobile) || mobile.length !== 10)) {
+                mobileError.style.display = 'block';
+            } else {
+                mobileError.style.display = 'none';
+            }
+        });
+        
+        // Real-time validation for password
+        document.getElementById('password').addEventListener('input', function(e) {
+            const password = e.target.value;
+            const passwordError = document.getElementById('passwordError');
+            
+            const hasLower = /[a-z]/.test(password);
+            const hasUpper = /[A-Z]/.test(password);
+            const hasNumber = /\d/.test(password);
+            const hasSpecial = /[@$!%*?&]/.test(password);
+            const hasValidLength = password.length >= 8;
+            
+            if (password.length > 0 && (!hasLower || !hasUpper || !hasNumber || !hasSpecial || !hasValidLength)) {
+                passwordError.style.display = 'block';
+            } else {
+                passwordError.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
